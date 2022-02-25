@@ -2,12 +2,6 @@
 <!-- Description of the challenge -->
 The challenge wants us to create `ReverseArray` method that takes an array of integers and reverses it wothout using built in functions. 
 
-
-## Whiteboard Process
-<!-- Embedded whiteboard image -->
-
-## Approach & Efficiency
-<!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 ![ReverseArray algorithm whiteboard](./Challenge01.jpg)
