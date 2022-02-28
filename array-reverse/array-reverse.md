@@ -4,7 +4,7 @@ The challenge wants us to create `ReverseArray` method that takes an array of in
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![ReverseArray algorithm whiteboard](./Challenge01.jpg)
+![ReverseArray algorithm whiteboard](./array-reverse.jpg)
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
 I took the approach to simply loop over the input array and assign its values to the newArray in the proper index for it to be reversed. 
