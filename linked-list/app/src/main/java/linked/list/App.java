@@ -15,7 +15,7 @@ public class App {
         myFirstList.insert(5);
         System.out.println(myFirstList);
         myFirstList.append(0);
-        System.out.println(myFirstList.includes(5));
+        System.out.println("This list includes number 5 ? "+myFirstList.includes(5));
         System.out.println("This list includes number 6 ? "+myFirstList.includes(6));
         System.out.println(myFirstList.toString());
         myFirstList.insertAfter(5,6);
@@ -25,7 +25,7 @@ public class App {
         myFirstList.insertAfter(1,7);
         myFirstList.insertBefore(null,8);
 
-        myFirstList.DeleteValue(11);
+        myFirstList.deleteValue(11);
         System.out.println(myFirstList.toString());
 
 
