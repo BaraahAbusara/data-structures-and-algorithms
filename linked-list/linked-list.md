@@ -12,17 +12,18 @@ The challenge asks us to create a linkedList class with a value and a pointer po
 - insertBefore: adds a newValue before a value.
 - insertAfter: add a newValue after a value.
 - DeleteValue: deletes a value from the linked list.
+- kthFromEnd: returns the value of the kth element from the tail of the linkedList.
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
--  declare a linkedList : Time complexity O(1) , Memory complexity O(1).
--  insert: Time complexity O(1) , Memory complexity O(1).
--  includes: Time complexity O(n) , Memory complexity O(1).
--  toString: Time complexity O(n) , Memory complexity O(n).
--  append: Time complexity O(n) , Memory complexity O(1).
--  insertBefore: Time complexity O(n) , Memory complexity O(1).
--  insertAfter: Time complexity O(n) , Memory complexity O(1).
--  DeleteValue: Time complexity O(n) , Memory complexity O(1).
-
+- declare a linkedList : Time complexity O(1) , Memory complexity O(1).
+- insert: Time complexity O(1) , Memory complexity O(1).
+- includes: Time complexity O(n) , Memory complexity O(1).
+- toString: Time complexity O(n) , Memory complexity O(n).
+- append: Time complexity O(1) , Memory complexity O(1).
+- insertBefore: Time complexity O(n) , Memory complexity O(1).
+- insertAfter: Time complexity O(n) , Memory complexity O(1).
+- DeleteValue: Time complexity O(n) , Memory complexity O(1).
+- kthFromEnd : Time complexity O(k) , Memory complexity O(1).
 ## API
 <!-- Description of each method publicly available to your Linked List -->
 
@@ -36,3 +37,5 @@ My code is able to do following functionalities publicly:
 - [x] insertBefore: adds a newValue before a value. 
 - [x] insertAfter: add a newValue after a value.
 - [x] DeleteValue: deletes a value from the linked list. 
+- [x] kthFromEnd: returns the value of the kth element from the tail of the linkedList.
+

@@ -1,21 +1,39 @@
 package linked.list;
 
 public class linkedList <T>{
-    Node head;
+    Node <T> head;
+    Node <T> tail;
 
-    public void linkedList(){
+    public linkedList(){
         this.head = null;
+        this.tail=null;
     }
 
-    public void insert(T value){
+    public void insert(T value){ //insert a value to the beginning
 
-            Node newNode = new Node(value);
+            Node <T> newNode = new Node<T>(value);
             newNode.nextNode= this.head;
-            this.head=newNode;
+            try{
+                if(this.head==null) {
+                    this.tail = newNode;
+                }
+                else
+                {
+                    this.head.previousNode=newNode;
+                }
+
+                this.head=newNode;
+
+            }catch(NullPointerException err)
+            {
+                System.out.println(err.getMessage());
+            }
+
+
     }
 
     public boolean includes(T value){
-        Node pointer=this.head;
+        Node <T> pointer=this.head;
 
         while(pointer!=null)
         {
@@ -23,32 +41,66 @@ public class linkedList <T>{
             {
                 return true;
             }
-            pointer=pointer.nextNode;
+            pointer=pointer.nextNode ;
         }
         return false;
     }
-    public void append (T value){
-        Node pointer=this.head;
-        Node newNode = new Node(value);
 
+    public void append (T value){ //adds an element to the end
+        Node<T> pointer=this.tail;
+        Node <T> newNode = new Node<T>(value);
 
-        while(true)
-        {
-            if(pointer.nextNode==null)
+        try{
+            if(this.head == null)
             {
-                pointer.nextNode=newNode;
-                break;
+                insert(value);
             }
-            pointer=pointer.nextNode;
+            newNode.previousNode=pointer;
+            pointer.nextNode=newNode;
+            this.tail=newNode;
+
+        } catch(NullPointerException err){
+            System.out.println(err.getMessage());
         }
+
+
+//---------------------------------------------------------
+//        Node pointer=this.head;
+//        Node newNode = new Node(value);
+//        if(pointer==null)
+//        {
+//            insert(value);
+//        }
+//
+//        try {
+//            while(true)
+//            {
+//                if(pointer.nextNode==null)
+//                {
+//                    pointer.nextNode=newNode;
+//                    break;
+//                }
+//                pointer=pointer.nextNode;
+//            }
+//        }catch (NullPointerException err){
+//            System.out.println(err.getMessage());
+//
+//        }
+
     }
     public void insertBefore (T value , T newValue){
-        Node pointer=this.head;
-        Node newNode = new Node(newValue);
-
-        if (pointer.nextNode.value==value)
+        Node <T> pointer=this.head;
+        Node <T> newNode = new Node <T>(newValue);
+        if(!includes(value) && value!=null)
         {
-            insert(value);
+            System.out.println("Sorry, value not found , new value could not be added!");
+            return;
+
+        }
+
+        if (pointer.value==value)
+        {
+            insert(newValue);
             return;
         }
         if(value==null)
@@ -61,37 +113,68 @@ public class linkedList <T>{
             if(pointer.nextNode.value==value)
             {
                 newNode.nextNode=pointer.nextNode;
+                newNode.previousNode=pointer;
+
+                pointer.nextNode.previousNode=newNode;
                 pointer.nextNode=newNode;
                 return;
             }
             pointer=pointer.nextNode;
         }
         System.out.println("Sorry, value not found , new value could not be added!");
+
     }
+
     public void insertAfter (T value , T newValue){
-        Node pointer=this.head;
-        Node newNode = new Node(newValue);
-
-        if(value == null)
-        {
-            System.out.println("Sorry , new value can't be added after a null");
-            return;
-        }
-        while(pointer!=null)
-        {
-            if(pointer.value==value)
+        Node <T> pointer=this.head;
+        Node <T> newNode = new Node<T>(newValue);
+        try{
+            if(!includes(value))
             {
-                newNode.nextNode=pointer.nextNode;
-                pointer.nextNode=newNode;
+                System.out.println("Sorry, value not found , new value could not be added!");
                 return;
             }
-            pointer=pointer.nextNode;
+
+            if(value == null)
+            {
+                System.out.println("Sorry ,new value can't be added after a null");
+                return;
+            }
+
+            while(pointer!=null)
+            {
+                if(pointer.value==value)
+                {
+                    if(pointer.nextNode!=null)
+                    {
+                        newNode.nextNode=pointer.nextNode;
+                        newNode.previousNode=pointer;
+
+                        pointer.nextNode.previousNode=newNode;
+                        pointer.nextNode=newNode;
+                        return;
+
+                    }
+                    else
+                    {
+                        newNode.nextNode=pointer.nextNode;
+                        newNode.previousNode=pointer;
+                        pointer.nextNode=newNode;
+
+                    }
+
+                }
+                pointer=pointer.nextNode;
+            }
+
+
+        }catch(NullPointerException err){
+            System.out.println(err.getMessage());
         }
-        System.out.println("Sorry, value not found , new value could not be added!");
 
     }
-    public void DeleteValue (T value ){ //problem of adding a non-existing number
-        Node pointer=this.head;
+    public void deleteValue (T value ){
+        Node <T> pointer=this.head;
 
         if(value == null)
         {
@@ -101,23 +184,24 @@ public class linkedList <T>{
         if(head.value==value)
         {
             this.head=this.head.nextNode;
+            this.head.previousNode=null;
             return;
         }
         try{
-            while(pointer!=null) // must handel NullPointerException
+            while(pointer!=null)
             {
 
                 if(pointer.nextNode.value==value)
                 {
                     pointer.nextNode=pointer.nextNode.nextNode;
+                    pointer.nextNode.previousNode=pointer;
                     return;
                 }
                 pointer=pointer.nextNode;
             }
-            System.out.println("Sorry, value not found ,value can not be deleted!");
 
         }catch(NullPointerException err){
-            System.out.println(err);
+            System.out.println(err.getMessage());
         }
 
 
@@ -126,7 +210,7 @@ public class linkedList <T>{
 
     public String toString (){
         String stringArray = new String("");
-        Node pointer=this.head;
+        Node <T> pointer=this.head;
         while(pointer!=null)
         {
             stringArray+="{"+pointer.value+"}->";
@@ -136,6 +220,23 @@ public class linkedList <T>{
         stringArray+="{NULL}";
 
         return stringArray;
+    }
+
+    public T kthFromEnd (int kIndex){
+        Node <T> pointer=this.tail;
+        int counter = 0;
+        while (pointer!=null)
+        {
+            if(counter==kIndex)
+            {
+                return (T) pointer.value;
+            }
+            counter++;
+            pointer=pointer.previousNode;
+        }
+
+
+        return (T) "We have no kth element";
     }
 
 }
