@@ -13,6 +13,9 @@ The challenge asks us to create a linkedList class with a value and a pointer po
 - insertAfter: add a newValue after a value.
 - DeleteValue: deletes a value from the linked list.
 - kthFromEnd: returns the value of the kth element from the tail of the linkedList.
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![append-insertBefore-insertAfter whiteboard](./linkedList.jpg)
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 - declare a linkedList : Time complexity O(1) , Memory complexity O(1).
