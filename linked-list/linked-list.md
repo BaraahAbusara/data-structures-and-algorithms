@@ -13,6 +13,7 @@ The challenge asks us to create a linkedList class with a value and a pointer po
 - insertAfter: add a newValue after a value.
 - DeleteValue: deletes a value from the linked list.
 - kthFromEnd: returns the value of the kth element from the tail of the linkedList.
+- linkedListZip:  takes two linkedLists and returns a merged linkedList of merging them in a Zipped order as a->b->a->b.
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 ![append-insertBefore-insertAfter whiteboard](./linkedList.jpg)
@@ -27,6 +28,7 @@ The challenge asks us to create a linkedList class with a value and a pointer po
 - insertAfter: Time complexity O(n) , Memory complexity O(1).
 - DeleteValue: Time complexity O(n) , Memory complexity O(1).
 - kthFromEnd : Time complexity O(k) , Memory complexity O(1).
+- linkedListZip : Time complexity O(n+m) , Memory complexity O(1).
 ## API
 <!-- Description of each method publicly available to your Linked List -->
 
@@ -41,4 +43,5 @@ My code is able to do following functionalities publicly:
 - [x] insertAfter: add a newValue after a value.
 - [x] DeleteValue: deletes a value from the linked list. 
 - [x] kthFromEnd: returns the value of the kth element from the tail of the linkedList.
+- [x] linkedListZip: takes two linkedLists and returns a merged linkedList of merging them in a Zipped order as a->b->a->b. 
 

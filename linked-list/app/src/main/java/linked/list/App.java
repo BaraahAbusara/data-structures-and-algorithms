@@ -4,29 +4,132 @@
 package linked.list;
 
 public class App {
+
+//    public static <T> linkedList<T> linkedListZip (linkedList<T> arr1, linkedList<T> arr2 ){
+//
+//        linkedList<T> zipped = new linkedList<T>();
+//
+//        boolean flag = true ;
+//
+//        Node<T> pointer1 = arr1.head;
+//        Node<T> pointer2 = arr2.head;
+//        try{
+//            while(pointer1!=null && pointer2!=null)
+//            {
+//                if(flag)
+//                {
+//                    zipped.append((T) pointer1.value);
+//                    pointer1=pointer1.nextNode;
+//
+//                }
+//                else
+//                {
+//                    zipped.append((T) pointer2.value);
+//                    pointer2=pointer2.nextNode;
+//                }
+//
+//                flag=!flag;
+//            }
+//            while(pointer1 != null)
+//            {
+//                zipped.append((T) pointer1.value);
+//                pointer1=pointer1.nextNode;
+//            }
+//            while(pointer2 !=null)
+//            {
+//                zipped.append((T) pointer2.value);
+//                pointer2=pointer2.nextNode;
+//
+//            }
+//
+//        }catch (NullPointerException err){
+//            System.out.println(err.getMessage());
+//        }
+//        return zipped;
+//
+//    }
+public static <T> linkedList<T> linkedListZip (linkedList<T> arr1, linkedList<T> arr2 ){
+
+    linkedList<T> zipped = new linkedList<T>();
+
+    boolean flag = true ;
+
+    Node<T> pointer1 = arr1.head;
+    Node<T> pointer2 = arr2.head;
+    if(pointer1!=null)
+    {
+        zipped.head=arr1.head;
+        pointer1=pointer1.nextNode;
+    }
+    else
+    {
+        zipped.head=arr2.head;
+        pointer2=pointer2.nextNode;
+    }
+
+
+    Node<T> pointer3 = zipped.head;
+    try{
+        while(pointer1!=null && pointer2!=null)
+        {
+            if(!flag)
+            {
+                pointer3.nextNode=pointer1;
+                pointer1=pointer1.nextNode;
+                pointer3=pointer3.nextNode;
+
+            }
+            else
+            {
+                pointer3.nextNode=pointer2;
+                pointer2=pointer2.nextNode;
+                pointer3=pointer3.nextNode;
+
+            }
+
+            flag=!flag;
+        }
+        while(pointer1 != null)
+        {
+            pointer3.nextNode=pointer1;
+            pointer1=pointer1.nextNode;
+            pointer3=pointer3.nextNode;
+        }
+        while(pointer2 !=null)
+        {
+            pointer3.nextNode=pointer2;
+            pointer2=pointer2.nextNode;
+            pointer3=pointer3.nextNode;
+        }
+
+    }catch (NullPointerException err){
+        System.out.println(err.getMessage());
+    }
+    return zipped;
+
+}
+
+
     public static void main(String[] args) {
 
         linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
 
         myFirstList.insert(1);
         myFirstList.insert(2);
         myFirstList.insert(3);
-        myFirstList.insert(4);
-        myFirstList.insert(5);
+        mySecondList.insert(4);
+        mySecondList.insert(5);
+        mySecondList.insert(6);
+
+
         System.out.println(myFirstList);
-        myFirstList.append(0);
-        System.out.println("This list includes number 5 ? "+myFirstList.includes(5));
-        System.out.println("This list includes number 6 ? "+myFirstList.includes(6));
-        System.out.println(myFirstList.toString());
-        myFirstList.insertAfter(5,6);
-        System.out.println("This list includes number 6 ? "+myFirstList.includes(6));
-        System.out.println(myFirstList.toString());
+        System.out.println(mySecondList);
 
-        myFirstList.insertAfter(1,7);
-        myFirstList.insertBefore(null,8);
+        linkedList<Integer > zippedList =linkedListZip(myFirstList,mySecondList);
+        System.out.println(zippedList);
 
-        myFirstList.deleteValue(11);
-        System.out.println(myFirstList.toString());
 
 
 
