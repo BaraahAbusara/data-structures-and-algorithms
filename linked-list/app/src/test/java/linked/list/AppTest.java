@@ -5,6 +5,8 @@ package linked.list;
 
 import org.checkerframework.checker.nullness.qual.AssertNonNullIfNonNull;
 import org.junit.jupiter.api.Test;
+
+import static linked.list.App.linkedListZip;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -278,4 +280,109 @@ class AppTest {
         assertEquals(expectedAns,actualAns);
     }
 
+    @Test
+
+    void  zippedAEqualsB  (){ // same length
+        linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
+
+        myFirstList.insert(1);
+        myFirstList.insert(2);
+        myFirstList.insert(3);
+        mySecondList.insert(4);
+        mySecondList.insert(5);
+        mySecondList.insert(6);
+        linkedList <Integer> actualAns = linkedListZip(myFirstList,mySecondList);
+        linkedList <Integer> expectedAns = new linkedList<>();
+        expectedAns.insert(4);
+        expectedAns.insert(1);
+
+        expectedAns.insert(5);
+        expectedAns.insert(2);
+
+        expectedAns.insert(6);
+        expectedAns.insert(3);
+
+        assertEquals(expectedAns.toString(),actualAns.toString());
+    }
+    @Test
+
+    void  zippedALessThanB  (){
+        linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
+
+        myFirstList.insert(1);
+        mySecondList.insert(4);
+        mySecondList.insert(5);
+        mySecondList.insert(6);
+        linkedList <Integer> actualAns = linkedListZip(myFirstList,mySecondList);
+        linkedList <Integer> expectedAns = new linkedList<>();
+        expectedAns.insert(4);
+        expectedAns.insert(5);
+        expectedAns.insert(6);
+        expectedAns.insert(1);
+
+        assertEquals(expectedAns.toString(),actualAns.toString());
+    }
+
+    @Test
+
+    void  zippedANull  (){
+        linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
+        mySecondList.insert(4);
+        mySecondList.insert(5);
+        mySecondList.insert(6);
+        linkedList <Integer> actualAns = linkedListZip(myFirstList,mySecondList);
+        linkedList <Integer> expectedAns = new linkedList<>();
+        expectedAns.insert(4);
+        expectedAns.insert(5);
+        expectedAns.insert(6);
+
+        assertEquals(expectedAns.toString(),actualAns.toString());
+    }
+
+    @Test
+
+    void  zippedBNull  (){
+        linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
+
+        myFirstList.insert(1);
+        myFirstList.insert(2);
+        myFirstList.insert(3);
+
+        linkedList <Integer> actualAns = linkedListZip(myFirstList,mySecondList);
+        linkedList <Integer> expectedAns = new linkedList<>();
+        expectedAns.insert(1);
+        expectedAns.insert(2);
+        expectedAns.insert(3);
+
+        assertEquals(expectedAns.toString(),actualAns.toString());
+    }
+
+    @Test
+
+    void  zippedAMoreThanB  (){
+        linkedList <Integer> myFirstList = new linkedList<Integer>();
+        linkedList <Integer> mySecondList = new linkedList<Integer>();
+
+
+        myFirstList.insert(1);
+        myFirstList.insert(2);
+        myFirstList.insert(3);
+        mySecondList.insert(6);
+        linkedList <Integer> actualAns = linkedListZip(myFirstList,mySecondList);
+        linkedList <Integer> expectedAns = new linkedList<>();
+        expectedAns.insert(1);
+        expectedAns.insert(2);
+        expectedAns.insert(6);
+        expectedAns.insert(3);
+
+        assertEquals(expectedAns.toString(),actualAns.toString());
+    }
 }
