@@ -17,6 +17,10 @@ The challenge asks us to create a linkedList class with a value and a pointer po
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 ![append-insertBefore-insertAfter whiteboard](./linkedList.jpg)
+![kthFromEnd whiteboard](./kthFromEnd.jpg)
+![linkedListZip whiteboard](./linkedListZip.jpg)
+
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 - declare a linkedList : Time complexity O(1) , Memory complexity O(1).
