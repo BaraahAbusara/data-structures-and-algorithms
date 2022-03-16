@@ -114,21 +114,23 @@ public static <T> linkedList<T> linkedListZip (linkedList<T> arr1, linkedList<T>
 
         linkedList <Integer> myFirstList = new linkedList<Integer>();
         linkedList <Integer> mySecondList = new linkedList<Integer>();
-
+        linkedList <Integer> myEmptyList = new linkedList<Integer>();
 
         myFirstList.insert(1);
         myFirstList.insert(2);
         myFirstList.insert(3);
         mySecondList.insert(4);
         mySecondList.insert(5);
-        mySecondList.insert(6);
+        mySecondList.insert(4);
 
+        System.out.println(myFirstList.ifPalindrome(myFirstList));
+        System.out.println(mySecondList.ifPalindrome(mySecondList));
+        System.out.println(myEmptyList.ifPalindrome(myEmptyList));
 
-        System.out.println(myFirstList);
-        System.out.println(mySecondList);
-
-        linkedList<Integer > zippedList =linkedListZip(myFirstList,mySecondList);
-        System.out.println(zippedList);
+//        System.out.println(myFirstList);
+//        System.out.println(mySecondList);
+//        linkedList<Integer > zippedList =linkedListZip(myFirstList,mySecondList);
+//        System.out.println(zippedList);
 
 
 

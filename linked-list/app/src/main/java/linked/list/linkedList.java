@@ -239,4 +239,20 @@ public class linkedList <T>{
         return (T) "We have no kth element";
     }
 
+    public boolean ifPalindrome (linkedList<T> list){
+        Node <T> pointer1 = list.head;
+        Node <T> pointer2 = list.tail;
+
+        while(pointer1!=null && pointer2!=null){
+            if(pointer1.value ==pointer2.value )
+            {
+                pointer1=pointer1.nextNode;
+                pointer2=pointer2.previousNode;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
