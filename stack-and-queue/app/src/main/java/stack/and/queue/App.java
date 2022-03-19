@@ -6,6 +6,12 @@ package stack.and.queue;
 public class App {
 
     public static void main(String[] args) {
+        PseudoQueue<Integer> pQ = new PseudoQueue<Integer>();
+        pQ.enqueue(1);
+        pQ.enqueue(2);
+        pQ.enqueue(3);
+        pQ.dequeue();
 
+        System.out.println(pQ.dequeue());
     }
 }
