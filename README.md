@@ -10,6 +10,6 @@ This repository is going to be for problem solving tasks provided by ASAC team -
 | **03**    | array-binary-search | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/array-binary-search/array-binary-search) |
 | **04-09** | linked-list         | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/linked-list/linked-list)                 |
 | **10**    | stack-and-queue     | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/stack-and-queue/stack-and-queue)         |
-| **11**    | PseudoQueue         | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/stack-and-queue/PseudoQueue)             |
+| **11**    | PseudoQueue         | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/stack-and-queue/%20PseudoQueue)          |
 | **12**    | AnimalShelter       | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/stack-and-queue/AnimalShelter)           |
 
