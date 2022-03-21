@@ -6,12 +6,47 @@ package stack.and.queue;
 public class App {
 
     public static void main(String[] args) {
-        PseudoQueue<Integer> pQ = new PseudoQueue<Integer>();
-        pQ.enqueue(1);
-        pQ.enqueue(2);
-        pQ.enqueue(3);
-        pQ.dequeue();
+//        Queue queue = new Queue<>();
+//        queue.enqueue(1);
+//        queue.enqueue(3);
+//        queue.enqueue(5);
+//        queue.dequeue();
+//        queue.dequeue();
+//        queue.dequeue();
+//        queue.dequeue();
 
-        System.out.println(pQ.dequeue());
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(12);
+//        stack.push(14);
+//        stack.push(13);
+//        stack.pop();
+//        stack.pop();
+//        stack.pop();
+//        System.out.println(stack.toString());
+//
+//        PseudoQueue<Integer> pQ = new PseudoQueue<Integer>();
+//        pQ.enqueue(1);
+//        pQ.enqueue(2);
+//        pQ.enqueue(3);
+//        pQ.dequeue();
+//        pQ.dequeue();
+//        pQ.dequeue();
+
+//        System.out.println(pQ.toString());
+//
+//        AnimalShelter<Animal> shelter1 = new AnimalShelter<>();
+//        shelter1.enqueue(new Animal("dog"));
+//        shelter1.enqueue(new Animal("cat"));
+//        shelter1.enqueue(new Animal("cat"));
+//        shelter1.enqueue(new Animal("cat"));
+//        shelter1.enqueue(new Animal("dog"));
+//
+//        System.out.println(shelter1.dequeue("dog"));
+//        System.out.println(shelter1.dequeue("cat"));
+//        System.out.println(shelter1.dequeue("cat"));
+//        System.out.println(shelter1.dequeue("dog"));
+//        System.out.println(shelter1.toString());
+
+
     }
 }
