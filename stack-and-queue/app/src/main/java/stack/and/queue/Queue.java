@@ -23,37 +23,55 @@ public class Queue<T> {
         }
     }
 
-    public String dequeue (){
-        if(!this.isEmpty()){
-            Node<T> removedNode = this.front;
-            if(this.front==this.back)
-            {
-                this.back=this.back.next;
+    public Node<T> dequeue (){
+        try {
+            if (!this.isEmpty()) {
+                Node<T> removedNode = this.front;
+                if (this.front == this.back) {
+                    this.back = this.back.next;
+                }
+                this.front = this.front.next;
+                return removedNode;
             }
-                this.front=this.front.next;
-            return removedNode.toString();
         }
-        else{
-            return "your queue is empty";
+        catch (EmptyStackException err){
+            System.out.println(err.getMessage());
         }
+        return null;
     }
-    public String peek (){
-        if(!this.isEmpty())
-            return this.front.toString();
-        else
-            return "your queue is empty";
 
-
+    public Node peek (){
+        try{
+            if (!this.isEmpty())
+                return this.front;
+        }catch (EmptyStackException err){
+            System.out.println(err.getMessage());
+        }
+          return null;
     }
+
     public boolean isEmpty(){
         return this.front==null;
     }
 
     @Override
     public String toString() {
-        return "Queue{" +
-                "front=" + front +
-                ", back=" + back +
-                '}';
+        String queueNodes ="";
+        queueNodes+='{';
+        Node pointer = this.front;
+        try
+        {
+            while (pointer.next != null) {
+                queueNodes += pointer.value + " , ";
+                pointer = pointer.next;
+            }
+            queueNodes += pointer.value;
+            queueNodes += '}';
+        } catch (NullPointerException err)
+        {
+            return err.getMessage();
+        }
+
+        return queueNodes;
     }
 }

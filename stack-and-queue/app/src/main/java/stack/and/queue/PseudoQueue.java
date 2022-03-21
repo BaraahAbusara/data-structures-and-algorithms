@@ -14,40 +14,45 @@ public class PseudoQueue<T> {
         stack1.push(value);
     }
 
-    public String dequeue () {
+    public Node<T> dequeue () {
         if(stack1.isEmpty())
         {
-            return "your queue is empty";
+            return null;
         }
         while (stack1.top!=null) //reverse in another stack to pop the last element (will be the first)
         {
-            stack2.push((T) String.valueOf(stack1.pop()));
+            stack2.push((T) stack1.pop());
         }
-        String string = stack2.pop();
+        Node<T> string = stack2.pop();
         if(stack2.isEmpty())
         {
             stack1=stack2;
-            return "your queue is now empty";
         }
         while (stack2.top!=null){   // reverse the stack again to its normal situation
-            stack1.push((T) String.valueOf(stack2.pop()));
+            stack1.push((T) stack2.pop());
         }
         return string;
     }
 
     @Override
     public String toString() {
-        String string = "";
-        Stack<T> stackCopy = stack1;
-        while(!stackCopy.isEmpty())
-        {
-            stack2.push((T) String.valueOf(stackCopy.pop()));
+        try{
+            String string = "{" ;
+            Stack<T> stackCopy = stack1;
+            while (!stackCopy.isEmpty()) {
+                stack2.push(stackCopy.pop().value);
+            }
+            Node<T> pointer = stack2.top;
+            while (pointer.next!=null){
+                string +=pointer.value+" , ";
+                pointer=pointer.next;
+            }
+            string+=pointer.value+"}";
+            return string;
+
+        }catch(NullPointerException err){
+            return err.getMessage();
         }
-        while(!stack2.isEmpty())
-        {
-            string+=stack2.pop()+" ";
-        }
-        return string;
     }
 }
 

@@ -12,23 +12,29 @@ public class Stack<T> {
         newNode.next=this.top;
         this.top=newNode;
     }
-    public String pop ()
+    public Node<T> pop ()
     {
-        if(!this.isEmpty()){
-            Node<T> poppedValue = this.top;
-            this.top=this.top.next;
-            return poppedValue.toString();
-        }else{
-            return "your stack is empty";
+        try{
+            if (!this.isEmpty()) {
+                Node<T> poppedValue = this.top;
+                this.top = this.top.next;
+                return poppedValue;
+            }
+        }catch(EmptyStackException err){
+            System.out.println(err.getMessage());
         }
+        return null ;
     }
 
-    public String peek ()
+    public Node<T> peek ()
     {
-        if(!this.isEmpty())
-            return this.top.toString();
-        else
-            return "your stack is empty";
+        try {
+            if (!this.isEmpty())
+                return this.top;
+        }catch (EmptyStackException err){
+            System.out.println(err.getMessage());
+        }
+        return null;
 
     }
 
@@ -38,8 +44,18 @@ public class Stack<T> {
 
     @Override
     public String toString() {
-        return "Stack{" +
-                "top=" + top +
-                '}';
+        try{
+            String stackNodes = "";
+            stackNodes += "{";
+            Node pointer = this.top;
+            while (pointer.next != null) {
+                stackNodes += pointer.value + " , ";
+                pointer = pointer.next;
+            }
+            stackNodes += pointer.value + "}";
+            return stackNodes;
+        }catch (NullPointerException err){
+            return "[]";
+        }
     }
 }

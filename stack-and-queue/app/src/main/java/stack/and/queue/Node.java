@@ -10,8 +10,8 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "value=" + value +
-                '}';
+        String string = "";
+        string+=value;
+        return string;
     }
 }
