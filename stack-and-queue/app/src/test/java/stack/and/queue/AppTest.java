@@ -5,6 +5,7 @@ package stack.and.queue;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static stack.and.queue.Stack.validateBrackets;
 
 class AppTest {
 
@@ -254,4 +255,57 @@ class AppTest {
 
         assertEquals(expectedString,shelter1.dequeue("dog").toString());
     }
+    //----------------------------------------------------------
+    @Test
+    void validateBracketsTest1 ()
+    {
+        String test = "{}()[]";
+        boolean expected = true;
+        assertEquals(expected,validateBrackets(test));
+    }
+
+    @Test
+    void validateBracketsTest2 ()
+    {
+        String test = "{{([])}}([)[]]";
+        boolean expected = false;
+        assertEquals(expected,validateBrackets(test));
+    }
+
+    @Test
+    void validateBracketsTest3 ()
+    {
+        String test = "()[[Extra Characters]]";
+        boolean expected = true;
+        assertEquals(expected,validateBrackets(test));
+    }
+    @Test
+    void validateBracketsTest4 ()
+    {
+        String test = "[({}]";
+        boolean expected = false;
+        assertEquals(expected,validateBrackets(test));
+    }
+        @Test
+    void validateBracketsTest5 ()
+    {
+        String test = "[";
+        boolean expected = false;
+        assertEquals(expected,validateBrackets(test));
+    }
+        @Test
+    void validateBracketsTest6 ()
+    {
+        String test = "{(})";
+        boolean expected = false;
+        assertEquals(expected,validateBrackets(test));
+    }
+        @Test
+    void validateBracketsTest7 ()
+    {
+        String test = "";
+        boolean expected = true;
+        assertEquals(expected,validateBrackets(test));
+    }
+
 }
