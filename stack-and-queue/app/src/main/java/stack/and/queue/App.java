@@ -39,10 +39,11 @@ public class App {
 //        shelter1.enqueue(new Animal("cat"));
 //        shelter1.enqueue(new Animal("cat"));
 //        shelter1.enqueue(new Animal("cat"));
-//        shelter1.enqueue(new Animal("dog"));
 //
 //        System.out.println(shelter1.dequeue("dog"));
 //        System.out.println(shelter1.dequeue("cat"));
+//        shelter1.enqueue(new Animal("dog"));
+
 //        System.out.println(shelter1.dequeue("cat"));
 //        System.out.println(shelter1.dequeue("dog"));
 //        System.out.println(shelter1.toString());
