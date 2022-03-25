@@ -35,8 +35,8 @@ class AppTest {
         stack.push(2);
         stack.push(3);
 
-        String expectedStack ="{3}";
-        assertEquals(expectedStack,stack.pop());
+        String expectedStack ="3";
+        assertEquals(expectedStack,stack.pop().toString());
     }
 //    Can successfully empty a stack after multiple pops
     @Test
@@ -304,6 +304,13 @@ class AppTest {
     void validateBracketsTest7 ()
     {
         String test = "";
+        boolean expected = true;
+        assertEquals(expected,validateBrackets(test));
+    }
+    @Test
+    void validateBracketsTest8 ()
+    {
+        String test = "Hello ()[]";
         boolean expected = true;
         assertEquals(expected,validateBrackets(test));
     }
