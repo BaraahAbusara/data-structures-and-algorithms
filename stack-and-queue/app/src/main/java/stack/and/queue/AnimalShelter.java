@@ -35,8 +35,14 @@ public class AnimalShelter<T> {
                 if (current.value.toString() == pref) {
                     foundAnimal = current.value;
                     if (currentPrevious != null) {
-                        currentPrevious.next = current.next;
-                        current = current.next;
+                        if(current!=animalQueue.back) {
+                            currentPrevious.next = current.next;
+                            current = current.next;
+                        }else {
+                            currentPrevious.next=null;
+                            animalQueue.back=currentPrevious;
+                        }
+
                     } else {
                         animalQueue.front=current.next;
                     }
