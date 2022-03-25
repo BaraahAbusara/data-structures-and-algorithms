@@ -47,11 +47,20 @@ public class Stack<T> {
             return true;
 
         Stack<Character> stack = new Stack<Character>();
-        if(bracketsString.charAt(0)=='}'||bracketsString.charAt(0)==')'||bracketsString.charAt(0)==']') //very first char must be an opening
-            return false;
-        stack.push(bracketsString.charAt(0));
 
-        for(int i=1;i<bracketsString.length();i++){
+
+        int j  ;
+        for (j=0; j<bracketsString.length();j++)
+            if(bracketsString.charAt(j)=='{'||bracketsString.charAt(j)=='('||bracketsString.charAt(j)=='[')
+            {
+                stack.push(bracketsString.charAt(j));
+                break;
+            }
+        else
+            if(bracketsString.charAt(j)=='}'||bracketsString.charAt(j)==')'||bracketsString.charAt(j)==']') //very first char must be an opening
+                return false;
+
+        for(int i=j+1;i<bracketsString.length();i++){
 
             if(bracketsString.charAt(i)=='}') // }
             {
