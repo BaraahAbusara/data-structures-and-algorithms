@@ -11,8 +11,10 @@ public class App {
         binarySearchTree.add(4);
         binarySearchTree.add(6);
         binarySearchTree.add(3);
-        System.out.println(binarySearchTree.preOrder(binarySearchTree.root));
-        System.out.println(binarySearchTree.inOrder(binarySearchTree.root));
-        System.out.println(binarySearchTree.postOrder(binarySearchTree.root));
+        System.out.println(binarySearchTree.preOrder(binarySearchTree.root,true));
+        System.out.println(binarySearchTree.inOrder(binarySearchTree.root,true));
+        System.out.println(binarySearchTree.postOrder(binarySearchTree.root,true));
+        System.out.println(binarySearchTree.contains(7));
+        System.out.println(binarySearchTree.contains(4));
     }
 }
