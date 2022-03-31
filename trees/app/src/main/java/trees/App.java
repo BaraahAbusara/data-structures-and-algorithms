@@ -16,5 +16,6 @@ public class App {
         System.out.println(binarySearchTree.postOrder(binarySearchTree.root,true));
         System.out.println(binarySearchTree.contains(7));
         System.out.println(binarySearchTree.contains(4));
+        System.out.println(binarySearchTree.treeMax(binarySearchTree.root));
     }
 }

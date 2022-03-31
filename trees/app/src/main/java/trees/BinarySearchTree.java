@@ -35,29 +35,41 @@ public class BinarySearchTree<Double> extends BinaryTree{
     Boolean isEmptyTree (){
         return root == null;
     }
+
     Boolean contains(double val){
-        if(val!=root.value){
-            if(val<root.value)
-                return contains (root.left,val);
-            else
-                return contains(root.right,val);
-        }
-        else return true;
+       try {
+            if (val != root.value) {
+                if (val < root.value)
+                    return contains(root.left, val);
+                else
+                    return contains(root.right, val);
+            } else return true;
+        } catch (NullPointerException nullPointerException){
+           return false;
+       }
     }
 
     Boolean contains (BTNode<Double> root,double val) {
-        if (val == root.value)
-            return true;
 
-        if (val < root.value)
-            if (root.left != null)
-                return contains(root.left, val);
+
+            if (val == root.value)
+                return true;
+
+            if (val < root.value)
+                if (root.left != null)
+                    return contains(root.left, val);
+                else
+                    return false;
+
+            else if (root.right != null)
+                return contains(root.right, val);
             else
                 return false;
 
-        else if (root.right != null)
-            return contains(root.right, val);
-        else
-            return false;
     }
+
+    public BTNode<Double> getRoot() {
+        return root;
+    }
+
 }

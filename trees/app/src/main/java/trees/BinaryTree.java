@@ -11,6 +11,9 @@ public class BinaryTree<Double> {
         if(flag){
             list.clear();
             flag=false;
+
+            if(root==null)
+                return list;
         }
 
         list.add(root.value);
@@ -24,10 +27,14 @@ public class BinaryTree<Double> {
         }
         return list;
     }
-    List<java.lang.Double> inOrder(BTNode <Double> root , boolean flag){
+    List<java.lang.Double> inOrder (BTNode <Double> root , boolean flag){
+
         if(flag){
             list.clear();
             flag=false;
+            if(root==null)
+                return list;
+
         }
 
         if(root.left!=null){
@@ -46,6 +53,9 @@ public class BinaryTree<Double> {
         if(flag){
             list.clear();
             flag=false;
+
+            if(root==null)
+                return list;
         }
 
         if(root.left!=null)
@@ -61,5 +71,19 @@ public class BinaryTree<Double> {
 //        System.out.println(root.value);
     }
 
+    double treeMax (BTNode<Double> root){
+        if(root==null)
+            return 0 ;
+
+        double maxVal =0 ;
+        List <java.lang.Double> list = inOrder(root,true);
+        for (int i=0 ; i<list.size();i++)
+        {
+            if(list.get(i)>maxVal)
+                maxVal=list.get(i);
+        }
+        return maxVal ;
+
+    }
 
 }
