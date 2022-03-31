@@ -77,4 +77,19 @@ class AppTest {
 
         assertEquals(BST.contains(5),false);
     }
+
+    @Test void treeMaxTestingEmptyBSTree(){
+        BinarySearchTree BST = new BinarySearchTree();
+
+        assertEquals(0,BST.treeMax(BST.getRoot()));
+    }
+
+    @Test void treeMaxTestingFound(){
+        BinarySearchTree BST = new BinarySearchTree();
+        BST.add(1);
+        BST.add(2);
+        BST.add(0);
+        assertEquals(2 ,BST.treeMax(BST.getRoot()));
+    }
+
 }
