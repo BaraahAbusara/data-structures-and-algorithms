@@ -92,4 +92,32 @@ class AppTest {
         assertEquals(2 ,BST.treeMax(BST.getRoot()));
     }
 
+    @Test
+    void breadthFirstTest(){
+        BinarySearchTree BST = new BinarySearchTree();
+        BST.add(1);
+        BST.add(2);
+        BST.add(3);
+        BST.add(4);
+        BST.add(5);
+        List <Double> expectedList =  new ArrayList<>();
+        expectedList.add(1.0);
+        expectedList.add(2.0);
+        expectedList.add(3.0);
+        expectedList.add(4.0);
+        expectedList.add(5.0);
+        assertEquals(expectedList,BST.breadthFirst());
+    }
+
+    @Test
+    void breadthFirstEmptyTreeTest(){
+        BinarySearchTree BST = new BinarySearchTree();
+
+        List <Double> expectedList =  new ArrayList<>();
+        assertEquals(expectedList,BST.breadthFirst());
+    }
+
+
+
+
 }

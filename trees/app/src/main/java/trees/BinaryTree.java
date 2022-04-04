@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryTree<Double> {
+    BTNode<Double> root;
     List<java.lang.Double> list = new ArrayList<>();
 
     List<java.lang.Double> preOrder(BTNode root , boolean flag )
@@ -84,6 +85,32 @@ public class BinaryTree<Double> {
         }
         return maxVal ;
 
+    }
+
+    public List breadthFirst ()
+    {
+        List<java.lang.Double> list = new ArrayList<>();
+
+        if(this.root==null)
+        {
+            return list;
+        }
+        Queue <BTNode<Double>> queue= new Queue<>();
+        queue.enqueue(this.root);
+
+        while(!queue.isEmpty()){
+            BTNode <Double> node= queue.dequeue().value;
+
+            list.add(node.value);
+            if(node.left!=null){
+                queue.enqueue(node.left);
+            }
+
+            if(node.right!=null) {
+                queue.enqueue(node.right);
+            }
+        }
+        return list ;
     }
 
 }
