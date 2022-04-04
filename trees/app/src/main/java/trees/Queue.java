@@ -23,7 +23,7 @@ public class Queue<T> {
         }
     }
 
-    public T dequeue (){
+    public Node<T> dequeue (){
         try {
             if (!this.isEmpty()) {
                 Node<T> removedNode = this.front;
@@ -31,7 +31,7 @@ public class Queue<T> {
                     this.back = this.back.next;
                 }
                 this.front = this.front.next;
-                return removedNode.value;
+                return removedNode;
             }
         }
         catch (EmptyStackException err){

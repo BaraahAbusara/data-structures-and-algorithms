@@ -109,4 +109,15 @@ class AppTest {
         assertEquals(expectedList,BST.breadthFirst());
     }
 
+    @Test
+    void breadthFirstEmptyTreeTest(){
+        BinarySearchTree BST = new BinarySearchTree();
+
+        List <Double> expectedList =  new ArrayList<>();
+        assertEquals(expectedList,BST.breadthFirst());
+    }
+
+
+
+
 }

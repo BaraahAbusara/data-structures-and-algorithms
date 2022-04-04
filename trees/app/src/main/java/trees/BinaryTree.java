@@ -90,17 +90,24 @@ public class BinaryTree<Double> {
     public List breadthFirst ()
     {
         List<java.lang.Double> list = new ArrayList<>();
-        Queue <java.lang.Double> queue= new Queue<>();
-        queue.enqueue(this.root.value);
+
+        if(this.root==null)
+        {
+            return list;
+        }
+        Queue <BTNode<Double>> queue= new Queue<>();
+        queue.enqueue(this.root);
 
         while(!queue.isEmpty()){
-            BTNode <java.lang.Double> node= new BTNode<>(queue.dequeue());
+            BTNode <Double> node= queue.dequeue().value;
+
             list.add(node.value);
             if(node.left!=null){
-                queue.enqueue(node.left.value);
+                queue.enqueue(node.left);
             }
+
             if(node.right!=null) {
-                queue.enqueue(node.right.value);
+                queue.enqueue(node.right);
             }
         }
         return list ;
