@@ -2,6 +2,7 @@ package trees;
 
 public class BinarySearchTree<Double> extends BinaryTree{
 
+    BTNode<Double> root;
 
     void add (double val ){
         if(isEmptyTree())
@@ -71,5 +72,8 @@ public class BinarySearchTree<Double> extends BinaryTree{
     public BTNode<Double> getRoot() {
         return root;
     }
+
+
+
 
 }
