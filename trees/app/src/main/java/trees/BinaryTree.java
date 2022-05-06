@@ -95,7 +95,7 @@ public class BinaryTree<Double> {
         {
             return list;
         }
-        Queue <BTNode<Double>> queue= new Queue<>();
+        Queue <BTNode<Double>> queue= new Queue<BTNode<Double>>();
         queue.enqueue(this.root);
 
         while(!queue.isEmpty()){
