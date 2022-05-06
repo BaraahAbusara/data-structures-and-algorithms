@@ -1,4 +1,4 @@
-#Insertion Sort 
+# Insertion Sort 
 
 Insertion sort is a sorting algorithm that loops over all elements of the array and compares the current element with the first element to its left , if it was smaller than it then we swap between them and check again with its left until the element becomes bigger than or equals to its left then we go and check the next element.  
 The algorithm keep working until it finishes the last element with **speed complexity of O(n^2)**.

@@ -1,6 +1,6 @@
 
 # data-structures-and-algorithms
-This repository is going to be for problem solving tasks provided by ASAC team - Java Advanced course 
+This repository is going to be for problem-solving tasks provided by ASAC team - Java Advanced course 
 
 
 | Challenge | Subject              | Link                                                                                                                                                                                                                                         |
@@ -17,4 +17,5 @@ This repository is going to be for problem solving tasks provided by ASAC team -
 | **16**    | Tree Max             | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/trees/treeMax)                                                                                                                                                         |
 | **17**    | Breadth First        | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/trees/breadthFirst)                                                                                                                                                    |
 | **26**    | Insertion Sort       | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/sorting-algorithms/insertion-sort/insertion-sort-readme) [Blog](https://baraahabusara.github.io/data-structures-and-algorithms/sorting-algorithms/insertion-sort/BLOG) |
+| **27**    | Merge Sort           | [Link](https://baraahabusara.github.io/data-structures-and-algorithms/sorting-algorithms/merge-sort/merge-sort) [Blog](https://baraahabusara.github.io/data-structures-and-algorithms/sorting-algorithms/merge-sort/BLOG)                    |
 
