@@ -6,6 +6,7 @@ package merge.sort;
 import org.junit.jupiter.api.Test;
 
 import static merge.sort.App.mergeSort;
+import static merge.sort.App.quickSort;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class AppTest {
@@ -32,6 +33,29 @@ class AppTest {
 
         assertArrayEquals(expectedArr,mergeSort(testedArr));
     }
+//---------------------------------------------------------------
+@Test
+void quickSortTest() {
+    int[] expectedArr = {1,2,3,4,5};
+    int[] testedArr ={2,4,3,5,1};
 
+    assertArrayEquals(expectedArr,quickSort(testedArr,0,testedArr.length-1));
+}
+
+    @Test
+    void quickSortSortedArrTest() {
+        int[] expectedArr = {1,2,3,4,5};
+        int[] testedArr ={1,2,3,4,5};
+
+        assertArrayEquals(expectedArr,quickSort(testedArr,0,testedArr.length-1));
+    }
+
+    @Test
+    void quickSortEmptyArrTest() {
+        int[] expectedArr = {};
+        int[] testedArr ={};
+
+        assertArrayEquals(expectedArr,quickSort(testedArr,0,testedArr.length-1));
+    }
 
 }
