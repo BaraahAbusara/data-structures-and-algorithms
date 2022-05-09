@@ -6,6 +6,7 @@ package merge.sort;
 import org.junit.jupiter.api.Test;
 
 import static merge.sort.App.mergeSort;
+import static merge.sort.App.quickSort;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class AppTest {
@@ -32,6 +33,5 @@ class AppTest {
 
         assertArrayEquals(expectedArr,mergeSort(testedArr));
     }
-
 
 }
