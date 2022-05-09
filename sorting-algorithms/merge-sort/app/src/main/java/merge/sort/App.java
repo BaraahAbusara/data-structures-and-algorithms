@@ -15,7 +15,6 @@ public class App {
         int[] right = new int[arrLength-mid];
         if(arrLength>1)
         {
-
             for(int i=0;i<mid;i++)
             {
                 left[i]=arr[i];
@@ -31,7 +30,6 @@ public class App {
             mergeSort(right);
 
             merge(left, right, arr);
-
         }
 
         return arr ;
