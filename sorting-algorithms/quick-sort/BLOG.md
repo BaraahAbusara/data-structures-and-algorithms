@@ -40,10 +40,11 @@ ALGORITHM Swap(arr, i, low)
 
 ## Trace
 Sample array : `[8,4,23,42,16,15]`
-
+![Tracing quick sort algorithm](./tracing-quick-sort.jpg)
 
 ## Efficiency
-- Time: O(n^2)
+- Time: O(n*log(n))
   - This happens when the pivot we choose is always an extreme (smallest or largest element)
-- Space: O(n)
+- Space: O(1)
+  - we are sorting the array in place. 
 
