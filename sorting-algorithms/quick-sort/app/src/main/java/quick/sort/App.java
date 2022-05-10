@@ -9,12 +9,11 @@ public class App {
     }
 
 
-    public static int[] quickSort(int[] arr, int left,int right){
+    public static int[] quickSort(int[] arr, int left, int right) {
 
-        if (left < right)
-        {
+        if (left < right) {
             // Partition the array by setting the position of the pivot value
-            int position=Partition(arr, left, right);
+            int position = Partition(arr, left, right);
             // Sort the left
             quickSort(arr, left, position - 1);
             // Sort the right
@@ -24,7 +23,8 @@ public class App {
         return arr;
 
     }
-    public static int Partition(int[] arr,int left,int right)
+
+    public static int Partition(int[] arr, int left, int right)
     {
         // set a pivot value as a point of reference
         int pivot= arr[right];
@@ -42,8 +42,8 @@ public class App {
         Swap(arr, right, low + 1);
         // return the pivot index point
         return low + 1;
+}
 
-    }
     public static void Swap(int[] arr,int i,int low){
         int temp;
         temp = arr[i];
