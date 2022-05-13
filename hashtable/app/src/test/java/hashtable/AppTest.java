@@ -3,12 +3,11 @@
  */
 package hashtable;
 
-import hashtable.data.HashNode;
+
 import hashtable.structure.HashMap;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
+import static hashtable.App.HashmapRepeatedWord;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -65,6 +64,42 @@ class AppTest {
 
         assertEquals(12 , testHashMap.getSize());
     }
+
+    @Test
+    void repeatedWordsTest1 (){
+        String testingStr = "Once upon a time, there was a brave princess who...";
+        String expected = "a";
+        assertEquals(expected,HashmapRepeatedWord(testingStr));
+    }
+
+    @Test
+    void repeatedWordsTest2 (){
+        String testingStr = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...";
+        String expected = "it";
+        assertEquals(expected,HashmapRepeatedWord(testingStr));
+    }
+
+    @Test
+    void repeatedWordsTest3 (){
+        String testingStr = "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..";
+        String expected = "summer";
+        assertEquals(expected,HashmapRepeatedWord(testingStr));
+    }
+
+    @Test
+    void EmptyStringTest (){
+        String testingStr = "";
+        String expected = "no repeated words available";
+        assertEquals(expected,HashmapRepeatedWord(testingStr));
+    }
+
+    @Test
+    void NoRepeatedWordsStringTest (){
+        String testingStr = "No Repeated Words";
+        String expected = "no repeated words available";
+        assertEquals(expected,HashmapRepeatedWord(testingStr));
+    }
+
 
 
 }

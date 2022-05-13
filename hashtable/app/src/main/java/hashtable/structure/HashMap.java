@@ -19,6 +19,7 @@ public class HashMap <K,V> {
         }
     }
 
+
     public int getSize() {
         return size;
     }
@@ -126,9 +127,8 @@ public class HashMap <K,V> {
                     headNode = headNode.getNext();
                 }
             }
-
-
         }
-
     }
+
+
 }

@@ -3,12 +3,34 @@
  */
 package hashtable;
 
+import hashtable.structure.HashMap;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+    }
+
+    public static String HashmapRepeatedWord (String originalStr){
+
+        HashMap<String,Integer> frq = new HashMap<>();
+        originalStr=originalStr.toLowerCase();
+        originalStr=originalStr.replace(","," ");
+        originalStr=originalStr.replace("."," ");
+
+        String[] str = originalStr.split(" ");
+
+        for (int i=0 ; i<str.length;i++){
+
+            if(str[i]=="")
+                continue;
+
+            if(frq.get(str[i])==null){
+                frq.set(str[i],1);
+            }
+            else
+                return str[i];
+        }
+        return "no repeated words available";
     }
 }
