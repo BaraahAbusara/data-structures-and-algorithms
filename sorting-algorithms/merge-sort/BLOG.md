@@ -38,10 +38,12 @@ ALGORITHM Merge(left, right, arr)
        set remaining entries in arr to remaining values in left
 ````
 ## Trace
-
-
+![merge-sort-tracing](./merge-sort-tracing.jpg)
+In the picture you can see how we split our array in the first part of the code to a left and right arrays recursively until we reach arrays of one element.
+then we sort left and right arrays and merge them then return the merged array until we reach our full array and return it. 
 ## Efficiency
 - Time: O(nlog(n))
   - The basic operation of this algorithm is dividing the array into two parts recursively until we have individual elements then we sort each half and return until we have the full array back sorted. 
-- Space: O(n)
+- Space: O(nlog(n))
+  - in each step we declare a new array with length of half of the previous array. 
   
