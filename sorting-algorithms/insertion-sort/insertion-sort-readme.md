@@ -3,6 +3,7 @@
 This Challenge is asking me to sort an array using insertion sort algorithm. 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
+![whiteboard](./insertion-sort.jpg)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
