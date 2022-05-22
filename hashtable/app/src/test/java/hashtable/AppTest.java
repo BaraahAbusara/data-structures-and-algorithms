@@ -7,6 +7,8 @@ package hashtable;
 import hashtable.structure.HashMap;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static hashtable.App.HashmapRepeatedWord;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,17 +29,19 @@ class AppTest {
         assertEquals("Amman",testHashMap.get("Jordan"));
     }
 //   4.Successfully returns a list of all unique keys that exist in the hashtable
-//    @Test void HashMapTestingKeys() {
-//        HashMap <String , String > testHashMap = new HashMap<>();
-//        testHashMap.set("Jordan","Irbid");
-//        testHashMap.set("Jordan","Amman");
-//        testHashMap.set("Egypt","Cairo");
-//        ArrayList<String> expected = new ArrayList<String>();
-//        expected.add("Jordan");
-//        expected.add("Egypt");
-//
-//        assertArrayEquals(testHashMap.keys(),expected);
-//    }
+    @Test void HashMapTestingKeys() {
+        HashMap <String , String > testHashMap = new HashMap<>();
+        testHashMap.set("Jordan","Irbid");
+        testHashMap.set("Jordan","Amman");
+        testHashMap.set("Egypt","Cairo");
+
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("Jordan");
+        expected.add("Egypt");
+
+        assertEquals(expected,testHashMap.keys());
+    }
+
 @Test void HashMapTestingNull() {
     HashMap <String , String > testHashMap = new HashMap<>();
     testHashMap.set("Jordan","Irbid");
