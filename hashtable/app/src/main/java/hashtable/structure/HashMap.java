@@ -49,10 +49,11 @@ public class HashMap <K,V> {
         {
             if (bucketArray.get(i)!=null)
             {
-                HashNode<K, V> head = bucketArray.get(i);
-                while(head.getNext()!=null){
-                    keys.add(head.getKey());
-                    head =head.getNext();
+                HashNode<K, V> node = bucketArray.get(i);
+                keys.add(node.getKey());
+                while(node.getNext()!=null){
+                    node =node.getNext();
+                    keys.add(node.getKey());
                 }
 
             }
@@ -131,4 +132,10 @@ public class HashMap <K,V> {
     }
 
 
+    @Override
+    public String toString() {
+        return "HashMap{" +
+                "bucketArray=" + bucketArray +
+                '}';
+    }
 }
