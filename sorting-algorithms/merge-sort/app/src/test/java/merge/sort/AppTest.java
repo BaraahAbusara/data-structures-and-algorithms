@@ -34,4 +34,12 @@ class AppTest {
         assertArrayEquals(expectedArr,mergeSort(testedArr));
     }
 
+    @Test
+    void mergeSortOneElementArrTest() {
+        int[] expectedArr = {1};
+        int[] testedArr ={1};
+
+        assertArrayEquals(expectedArr,mergeSort(testedArr));
+    }
+
 }

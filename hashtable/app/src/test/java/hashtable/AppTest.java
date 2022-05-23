@@ -34,6 +34,7 @@ class AppTest {
         testHashMap.set("Jordan","Irbid");
         testHashMap.set("Jordan","Amman");
         testHashMap.set("Egypt","Cairo");
+        testHashMap.set("Egypt","Sharm Al-sheikh");
 
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("Jordan");
