@@ -63,8 +63,9 @@ class AppTest {
 
         assertEquals(expected,actual);
     }
+
     @Test
-    void oneEmptyTree ()
+    void oneEmptyTree2 ()
     {
 
         BinarySearchTree tree1 = new BinarySearchTree();
@@ -77,4 +78,22 @@ class AppTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    void oneEmptyTree1 ()
+    {
+
+        BinarySearchTree tree1 = new BinarySearchTree();
+
+        BinarySearchTree tree2 = new BinarySearchTree();
+        tree2.add(3);
+        tree2.add(7);
+        TreeIntersection treeIntersection = new TreeIntersection();
+        ArrayList<Integer> actual = treeIntersection.treeIntersection(tree1,tree2);
+        ArrayList<Integer> expected =  new ArrayList<>();
+
+        assertEquals(expected,actual);
+    }
+
+
 }
