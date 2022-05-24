@@ -53,6 +53,9 @@ public class TreeIntersection {
     }
 
     public ArrayList<Integer> treeIntersection (BinarySearchTree tree1, BinarySearchTree tree2){
+        if(tree1.isEmptyTree() || tree2.isEmptyTree())
+            return new ArrayList<>();
+
         addToMap(tree1.root);
 
         return findIntersection(tree2.root);
