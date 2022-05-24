@@ -4,6 +4,8 @@
 package TreeIntersection;
 
 import TreeIntersection.structure.BinarySearchTree;
+import TreeIntersection.structure.HashMap;
+import TreeIntersection.structure.LeftJoin;
 import TreeIntersection.structure.TreeIntersection;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
@@ -13,6 +15,161 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class AppTest {
+    @Test
+    void leftJoinNormalTest (){
+        HashMap<String,String> synonyms = new HashMap<>();
+        HashMap<String,String> antonyms = new HashMap<>();
+
+        synonyms.set("fond","enamored");
+        synonyms.set("diligent","employed");
+        synonyms.set("guide","usher");
+        synonyms.set("outfit","garb");
+        synonyms.set("wrath","anger");
+
+        antonyms.set("diligent",	"idle");
+        antonyms.set("fond",	"averse");
+        antonyms.set("guide",	"follow");
+        antonyms.set("flow",	"jam");
+        antonyms.set("wrath",	"delight");
+
+
+        LeftJoin leftJoin =  new LeftJoin();
+        ArrayList<ArrayList<String>> actual = leftJoin.leftJoin(synonyms,antonyms);
+
+        ArrayList<ArrayList<String>> expected = new ArrayList<ArrayList<String>>();
+        ArrayList <String> help2 = new ArrayList<>();
+
+        help2.add("diligent");
+        help2.add("employed");
+        help2.add("idle");
+        expected.add(help2);
+
+        ArrayList <String> help1 = new ArrayList<>();
+        help1.add("wrath");
+        help1.add("anger");
+        help1.add("delight");
+        expected.add(help1);
+
+        ArrayList <String> help = new ArrayList<>();
+        help.add("fond");
+        help.add("enamored");
+        help.add("averse");
+        expected.add(help);
+
+        ArrayList <String> help4 = new ArrayList<>();
+        help4.add("guide");
+        help4.add("usher");
+        help4.add("follow");
+        expected.add(help4);
+
+        ArrayList <String> help3 = new ArrayList<>();
+
+        help3.add("outfit");
+        help3.add("garb");
+        help3.add(null);
+        expected.add(help3);
+
+
+
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void emptySynonyms ()
+    {
+        HashMap<String,String> synonyms = new HashMap<>();
+        HashMap<String,String> antonyms = new HashMap<>();
+
+        antonyms.set("diligent",	"idle");
+        antonyms.set("fond",	"averse");
+        antonyms.set("guide",	"follow");
+        antonyms.set("flow",	"jam");
+        antonyms.set("wrath",	"delight");
+
+
+        LeftJoin leftJoin =  new LeftJoin();
+        ArrayList<ArrayList<String>> actual = leftJoin.leftJoin(synonyms,antonyms);
+
+        ArrayList<ArrayList<String>> expected = new ArrayList<ArrayList<String>>();
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void emptyAntonyms (){
+        HashMap<String,String> synonyms = new HashMap<>();
+        HashMap<String,String> antonyms = new HashMap<>();
+
+
+        synonyms.set("fond","enamored");
+        synonyms.set("diligent","employed");
+        synonyms.set("guide","usher");
+        synonyms.set("outfit","garb");
+        synonyms.set("wrath","anger");
+
+        LeftJoin leftJoin =  new LeftJoin();
+        ArrayList<ArrayList<String>> actual = leftJoin.leftJoin(synonyms,antonyms);
+
+        ArrayList<ArrayList<String>> expected = new ArrayList<ArrayList<String>>();
+
+        ArrayList <String> help2 = new ArrayList<>();
+        help2.add("diligent");
+        help2.add("employed");
+        help2.add(null);
+        expected.add(help2);
+
+        ArrayList <String> help1 = new ArrayList<>();
+        help1.add("wrath");
+        help1.add("anger");
+        help1.add(null);
+        expected.add(help1);
+
+        ArrayList <String> help = new ArrayList<>();
+        help.add("fond");
+        help.add("enamored");
+        help.add(null);
+        expected.add(help);
+
+        ArrayList <String> help4 = new ArrayList<>();
+        help4.add("guide");
+        help4.add("usher");
+        help4.add(null);
+        expected.add(help4);
+
+        ArrayList <String> help3 = new ArrayList<>();
+
+        help3.add("outfit");
+        help3.add("garb");
+        help3.add(null);
+        expected.add(help3);
+
+
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void AllEmpty ()
+    {
+        HashMap<String,String> synonyms = new HashMap<>();
+        HashMap<String,String> antonyms = new HashMap<>();
+
+        LeftJoin leftJoin =  new LeftJoin();
+        ArrayList<ArrayList<String>> actual = leftJoin.leftJoin(synonyms,antonyms);
+
+        ArrayList<ArrayList<String>> expected = new ArrayList<ArrayList<String>>();
+
+        assertEquals(expected, actual);
+
+    }
+
+
+
+    //---------------------------------------------------------------
     @Test void NormalTest() {
         BinarySearchTree tree1 = new BinarySearchTree();
         BinarySearchTree tree2 = new BinarySearchTree();
