@@ -3,9 +3,98 @@
  */
 package graph;
 
+import graph.data.Vertex;
+import graph.structure.Graph;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    //Node can be successfully added to the graph
+    @Test
+    void testing1 (){
+        Graph graph = new Graph();
+        graph.addNode("6565");
+
+        assertEquals(1,graph.size());
+    }
+    //An edge can be successfully added to the graph
+    @Test
+    void testing2 (){
+        Graph graph = new Graph();
+        graph.addNode("6565");
+        graph.addNode("7878");
+        graph.addEdge("6565","7878");
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("7878"));
+
+        assertEquals(expected,graph.getNeighbors(new Vertex("6565")));
+    }
+//    A collection of all nodes can be properly retrieved from the graph
+    @Test
+    void testing3 (){
+
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addEdge("a","b");
+
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("a"));
+        expected.add(new Vertex("b"));
+        expected.add(new Vertex("c"));
+
+        assertEquals(expected,graph.getNodes());
+
+
+    }
+//    The proper size is returned, representing the number of nodes in the graph
+    @Test
+    void testing4 (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addEdge("a","b");
+
+        assertEquals(3,graph.size());
+    }
+
+    @Test
+    void testing6 (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addNode("d");
+        graph.addEdge("a","b");
+        graph.addEdge("a","c");
+        graph.addEdge("d","c");
+        graph.addEdge("d","b");
+
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("a"));
+        expected.add(new Vertex("b"));
+        expected.add(new Vertex("c"));
+        expected.add(new Vertex("d"));
+
+        assertEquals(expected.toString() , graph.breadthFirst(new Vertex("a")).toString());
+
+
+
+    }
+    @Test
+    void testing7 (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("a"));
+
+        assertEquals(expected.toString() , graph.breadthFirst(new Vertex("a")).toString());
+    }
 
 }
