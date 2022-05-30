@@ -1,21 +1,23 @@
 package graph.structure;
 
+import graph.data.Node;
 import graph.data.Vertex;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
-    private Map<Vertex, List<Vertex>> adjVertices;
+    private Map<Vertex, List<Vertex>> adjVertices = new HashMap<>();
     int size =0 ;
     public Graph() {
     }
 
-    public void addNode(String data) {
+    public Vertex addNode(String data) {
         Vertex vertex = new Vertex(data);
+
         adjVertices.putIfAbsent(vertex,new ArrayList<>());
         size++;
+
+        return vertex;
     }
 
     public void addEdge(String data1,String data2){
@@ -32,9 +34,10 @@ public class Graph {
     }
 
     public ArrayList<Vertex> getNodes (){
+
         ArrayList<Vertex> nodes = new ArrayList<>();
-        for (Object vertex : adjVertices.keySet()){
-            nodes.addAll(adjVertices.get(vertex));
+        for (Vertex vertex : adjVertices.keySet()){
+            nodes.add(vertex);
         }
 
         return nodes;
@@ -48,6 +51,28 @@ public class Graph {
         return neighbors;
     }
 
+    public ArrayList<Node<Vertex>> breadthFirst (Vertex v){
+        ArrayList<Node<Vertex>> nodes = new ArrayList<>();
+        Queue <Vertex> breadth = new Queue<Vertex>() ;
+        Set <Vertex> visited = new HashSet<>();
 
+        breadth.enqueue(v);
+        visited.add(v);
+
+        while (!breadth.isEmpty())
+        {
+            Node<Vertex> front = breadth.dequeue();
+            nodes.add(front);
+            System.out.println(adjVertices.get(front.value).toArray());
+            for (int i=0 ; i<adjVertices.get(front.value).size();i++){
+                if(!visited.contains(adjVertices.get(front.value).get(i))){
+                    visited.add(adjVertices.get(front.value).get(i));
+                    breadth.enqueue(adjVertices.get(front.value).get(i));
+                }
+            }
+
+        }
+        return nodes;
+    }
 
 }
