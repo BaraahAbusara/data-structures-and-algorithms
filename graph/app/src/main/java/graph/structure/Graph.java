@@ -19,6 +19,21 @@ public class Graph {
 
         return vertex;
     }
+    public Vertex addNode(String data, int weight) {
+        Vertex vertex = new Vertex(data,weight);
+        adjVertices.putIfAbsent(vertex,new ArrayList<>());
+        size++;
+
+        return vertex;
+    }
+
+    public void addEdge(String data1,String data2 , int weight){
+        Vertex vertex1 = new Vertex(data1,weight);
+        Vertex vertex2 = new Vertex(data2,weight);
+
+        adjVertices.get(vertex1).add(vertex2);
+        adjVertices.get(vertex2).add(vertex1);
+    }
 
     public void addEdge(String data1,String data2){
         Vertex vertex1 = new Vertex(data1);
@@ -75,4 +90,49 @@ public class Graph {
         return nodes;
     }
 
-}
+//    public Integer businessTrip (Graph graph , ArrayList<String> cities ){
+//        if(cities.size()<this.size)
+//            return null;
+//
+//        int cost ;
+//        if(graph.size < cities.size())
+//            return null;
+//
+//        //implementation
+//
+//        return cost;
+//
+//    }
+    public ArrayList<Vertex> depthFirst (Vertex v) {
+        ArrayList<Vertex> nodesAns = new ArrayList<>();
+
+            HashMap  <Vertex,Boolean> nodes = new HashMap<>();
+
+            Stack<Vertex> stack = new Stack<>();
+
+            stack.push(v);                                    //push root node to the stack
+            Vertex a = null;
+
+            while(!stack.empty())
+            {
+                v = stack.peek();                       //extract the top element of the stack
+                stack.pop();                            //remove the top element from the stack
+
+                if(nodes.get(v).equals(false))
+                {
+                    nodesAns.add(v);
+                    nodes.put(v,true);
+                }
+
+                for (int i = 0; i < adjVertices.get(v).size(); i++)  //iterate through the linked list and then propagate to the next few nodes
+                {
+                    a = adjVertices.get(v).get(i);
+                    if (!nodes.get(a))                    //only push those nodes to the stack which aren't in it already
+                    {
+                        stack.push(a);                          //push the top element to the stack
+                    }
+                }
+        }
+        return nodesAns;
+    }
+    }
