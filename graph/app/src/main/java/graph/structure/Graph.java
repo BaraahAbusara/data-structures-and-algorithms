@@ -90,18 +90,49 @@ public class Graph {
         return nodes;
     }
 
-    public Integer businessTrip (Graph graph , ArrayList<String> cities ){
-        if(cities.size()<this.size)
-            return null;
+//    public Integer businessTrip (Graph graph , ArrayList<String> cities ){
+//        if(cities.size()<this.size)
+//            return null;
+//
+//        int cost ;
+//        if(graph.size < cities.size())
+//            return null;
+//
+//        //implementation
+//
+//        return cost;
+//
+//    }
+    public ArrayList<Vertex> depthFirst (Vertex v) {
+        ArrayList<Vertex> nodesAns = new ArrayList<>();
 
-        int cost ;
-        if(graph.size < cities.size())
-            return null;
+            HashMap  <Vertex,Boolean> nodes = new HashMap<>();
 
-        //implementation
+            Stack<Vertex> stack = new Stack<>();
 
-        return cost; 
+            stack.push(v);                                    //push root node to the stack
+            Vertex a = null;
 
+            while(!stack.empty())
+            {
+                v = stack.peek();                       //extract the top element of the stack
+                stack.pop();                            //remove the top element from the stack
+
+                if(nodes.get(v).equals(false))
+                {
+                    nodesAns.add(v);
+                    nodes.put(v,true);
+                }
+
+                for (int i = 0; i < adjVertices.get(v).size(); i++)  //iterate through the linked list and then propagate to the next few nodes
+                {
+                    a = adjVertices.get(v).get(i);
+                    if (!nodes.get(a))                    //only push those nodes to the stack which aren't in it already
+                    {
+                        stack.push(a);                          //push the top element to the stack
+                    }
+                }
+        }
+        return nodesAns;
     }
-
-}
+    }
