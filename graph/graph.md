@@ -30,4 +30,4 @@ My Graph has the following methods :
 - add edge : adds an edge between two vertices 
 - get nodes : returns list of vertices inside the graph
 - get neighbors : returns the list of vertices connected to a certain vertex.
-- size : returns number of vertices inside the graph. 
+- size : returns number of vertices inside the graph.
