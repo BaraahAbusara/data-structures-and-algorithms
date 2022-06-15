@@ -49,7 +49,6 @@ class AppTest {
 
         assertEquals(expected,graph.getNodes());
 
-
     }
 //    The proper size is returned, representing the number of nodes in the graph
     @Test
@@ -97,4 +96,84 @@ class AppTest {
         assertEquals(expected.toString() , graph.breadthFirst(new Vertex("a")).toString());
     }
 
+    // businessTrip test cases
+    @Test
+    void testingGeneral (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("e");
+        graph.addNode("o");
+
+        graph.addEdge("a","b",5);
+        graph.addEdge("b","o",1);
+        graph.addEdge("o","a",1);
+
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("a");
+        cities.add("b");
+        cities.add("o");
+
+        int expected = 3 ;
+        int actual = graph.businessTrip(cities);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void testingNoPath (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("e");
+        graph.addNode("o");
+
+        graph.addEdge("a","b",5);
+        graph.addEdge("b","o",1);
+        graph.addEdge("o","a",1);
+
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("a");
+        cities.add("b");
+        cities.add("e");
+
+        int expected = -1;
+        int actual = graph.businessTrip(cities);
+
+        assertEquals(expected,actual);
+    }
+
+    //----------------------------------------------------Depth first
+    @Test
+    void testingDF(){
+        Graph graph = new Graph();
+        graph.addNode("a");
+        graph.addNode("b");
+        graph.addNode("c");
+        graph.addNode("d");
+        graph.addEdge("a","b");
+        graph.addEdge("a","c");
+        graph.addEdge("d","c");
+        graph.addEdge("d","b");
+
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("a"));
+        expected.add(new Vertex("c"));
+        expected.add(new Vertex("d"));
+        expected.add(new Vertex("b"));
+
+        assertEquals(expected.toString() , graph.depthFirst(new Vertex("a")).toString());
+
+    }
+
+    @Test
+    void testingOneElement (){
+        Graph graph = new Graph();
+        graph.addNode("a");
+
+        ArrayList<Vertex> expected = new ArrayList<>();
+        expected.add(new Vertex("a"));
+
+        assertEquals(expected.toString() , graph.depthFirst(new Vertex("a")).toString());
+    }
 }

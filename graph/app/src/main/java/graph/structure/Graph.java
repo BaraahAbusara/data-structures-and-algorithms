@@ -90,44 +90,79 @@ public class Graph {
         return nodes;
     }
 
-//    public Integer businessTrip (Graph graph , ArrayList<String> cities ){
-//        if(cities.size()<this.size)
-//            return null;
-//
-//        int cost ;
-//        if(graph.size < cities.size())
-//            return null;
-//
-//        //implementation
-//
-//        return cost;
-//
-//    }
+    public Integer businessTrip ( ArrayList<String> cities ){
+        int cost =0;
+        if(this.size < cities.size())
+            return -1;
+
+        //implementation
+        for(int i=1 ; i<cities.size();i++){
+            Integer curCost = dij(cities.get(i-1),cities.get(i));
+            if(curCost!=-1)
+                cost+=curCost;
+            else
+                return -1;
+        }
+
+        return cost;
+    }
+
+    public Integer dij (String c1, String c2){
+        //---------------------------------------
+        Queue <Vertex> breadth = new Queue<Vertex>() ;
+        HashMap <Vertex,Integer> visited = new HashMap<Vertex, Integer>();
+        Vertex v1 = new Vertex(c1);
+        Vertex v2 = new Vertex(c2);
+        breadth.enqueue(v1);
+        visited.put(v1,0);
+
+        while (!breadth.isEmpty())
+        {
+            Node<Vertex> front = breadth.dequeue();
+            Vertex cur = new Vertex("");
+
+            for (int i=0 ; i<adjVertices.get(front.value).size();i++){
+                cur= adjVertices.get(front.value).get(i);
+                if(!visited.containsKey(cur)){
+                    visited.put(cur,visited.get(front.value)+cur.weight);
+                    breadth.enqueue(adjVertices.get(front.value).get(i));
+                }
+                else
+                {
+                    if(visited.get(front.value)+cur.weight<visited.get(cur))
+                        visited.put(cur,visited.get(front.value)+cur.weight);
+                }
+            }
+
+        }
+        return visited.getOrDefault(v2, -1);
+    }
+
+
+
+
+
     public ArrayList<Vertex> depthFirst (Vertex v) {
         ArrayList<Vertex> nodesAns = new ArrayList<>();
 
             HashMap  <Vertex,Boolean> nodes = new HashMap<>();
-
             Stack<Vertex> stack = new Stack<>();
-
             stack.push(v);                                    //push root node to the stack
-            Vertex a = null;
+            Vertex a = new Vertex("");
 
             while(!stack.empty())
             {
                 v = stack.peek();                       //extract the top element of the stack
                 stack.pop();                            //remove the top element from the stack
-
-                if(nodes.get(v).equals(false))
+                if(!nodes.containsKey(v))
                 {
                     nodesAns.add(v);
                     nodes.put(v,true);
                 }
-
                 for (int i = 0; i < adjVertices.get(v).size(); i++)  //iterate through the linked list and then propagate to the next few nodes
                 {
                     a = adjVertices.get(v).get(i);
-                    if (!nodes.get(a))                    //only push those nodes to the stack which aren't in it already
+                    if (!nodes.containsKey(a))                    //only push those nodes to the stack which aren't in it already
                     {
                         stack.push(a);                          //push the top element to the stack
                     }
