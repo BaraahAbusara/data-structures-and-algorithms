@@ -9,8 +9,9 @@ This challenge asks to implement Depth First function to traverse over a graph a
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-Time complexity for DepthFirst algorithm id O(V+E) where V is the number of nodes in the graph, and E is the number of edges.
+Time complexity for DepthFirst algorithm is O(V+E) where V is the number of nodes in the graph, and E is the number of edges.
 Space complexity is O(V) where V is the maximum size of the stack at any point of time.
 
 ## Solution
 <!-- Embedded whiteboard image -->
+![whiteboard](./depth-first.jpg)
